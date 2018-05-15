@@ -1,0 +1,30 @@
+[1] Copy the files
+
+cd $HOME
+cp -r /share/apps/examples/workshop/TUTORIAL .
+cp -r /share/apps/examples/workshop/UCLA_PR_IntroML .
+
+[2] Change to MPI case
+
+cd $HOME/TUTORIAL/MPI
+mpif90 -o hello_mpi hello_mpi.f90
+
+[3] Submit MPI job
+cd $HOME/TUTORIAL/MPI/IBRUN
+sbatch hellompi-slurm.sb
+
+(To use reservation: sbatch --res=UCLA2018Res hellompi-slurm.sb)
+
+[4] CUDA example
+
+cd /home/$USER/TUTORIAL/CUDA
+nvcc -o matmul -I. matrixMul.cu
+sbatch cuda.sb
+
+(To use reservation: sbatch --res=UCLA2018Res cuda.sb)
+
+[5] TensorFlow example
+
+cd /home/$USER/TUTORIAL/TensorFlow
+sbatch TensorFlow.sb
+
